@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="955.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game2048.MainController">
+   <children>
+      <Pane fx:id="mainPane" prefHeight="955.0" prefWidth="800.0" style="-fx-background-color: rgb(250,248,239);">
+         <children>
+            <StackPane fx:id="background" layoutX="31.0" layoutY="187.0" prefHeight="749.0" prefWidth="746.0" >
+               <children>
+                  <GridPane fx:id="gz" hgap="30.0" maxHeight="600.0" maxWidth="600.0" prefHeight="600.0" prefWidth="600.0" vgap="30.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" prefWidth="150.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="150.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </StackPane>
+            <Label layoutX="41.0" layoutY="14.0" text="2048" textFill="#776e65">
+               <font>
+                  <Font name="System Bold" size="74.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="108.0" prefHeight="40.0" prefWidth="285.0" text="合并数字到达2048!" textFill="#776e65">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Pane fx:id="scorePane" layoutX="415.0" layoutY="20.0" prefHeight="94.0" prefWidth="176.0" >
+               <children>
+                  <Label layoutX="66.0" layoutY="14.0" style="-fx-text-fill: rgb(238,228,218);" text="分数">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <StackPane fx:id="currentScoreStackPane" layoutY="42.0" prefHeight="52.0" prefWidth="176.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="bestPane" layoutX="601.0" layoutY="20.0" prefHeight="94.0" prefWidth="176.0" >
+               <children>
+                  <Label layoutX="66.0" layoutY="14.0" style="-fx-text-fill: rgb(238,228,218);" text="最佳">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <StackPane fx:id="bestScoreStackPane" layoutY="42.0" prefHeight="52.0" prefWidth="176.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="newGame" layoutX="633.0" layoutY="118.0" onMouseClicked="#newGame" prefHeight="60.0" prefWidth="144.0" >
+               <children>
+                  <Label layoutX="25.0" layoutY="4.0" prefHeight="52.0" prefWidth="94.0" text="新游戏" textFill="#f8e4d0">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
