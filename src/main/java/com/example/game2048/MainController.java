@@ -81,7 +81,9 @@ public class MainController implements Initializable {
     private static Map<Integer,List<int[]>> gradeToRandomValuesAndWeight = Map.of(
             1,List.of(new int[]{2,4},new int[]{80,20}),
             2,List.of(new int[]{4,8},new int[]{90,10}),
-            3,List.of(new int[]{8,16},new int[]{80,20})
+            3,List.of(new int[]{8,16},new int[]{80,20}),
+            4,List.of(new int[]{16,32},new int[]{80,20}),
+            5,List.of(new int[]{32,64},new int[]{80,20})
     );
     private static int grade = 1;
 
@@ -153,6 +155,10 @@ public class MainController implements Initializable {
         private static final Color 一千零二十四 = Color.rgb(56,210,59);
         private static final Color 二千四百四十八 = Color.rgb(42,203,173);
         private static final Color 四千九百九十六 = Color.rgb(35,108,192);
+        private static final Color 八千一百九十二 = Color.rgb(106,39,102);
+        private static final Color 一万六千三百八十四 = Color.rgb(173,43,94);
+        private static final Color 三万两千七百六十八 = Color.rgb(190,28,28);
+        private static final Color 六万五千五百三十六 = Color.rgb(44,3,3);
 
 
 
@@ -170,6 +176,10 @@ public class MainController implements Initializable {
             put(1024,Color.rgb(249,246,242));
             put(2048,Color.rgb(249,246,242));
             put(4096,Color.rgb(249,246,242));
+            put(8192,Color.rgb(249,246,242));
+            put(16384,Color.rgb(249,246,242));
+            put(32768,Color.rgb(249,246,242));
+            put(65536,Color.rgb(249,246,242));
         }};
 
         public static final Map<Integer, Color> digitToBackgroungColorMap = createDigitToColorMap();
@@ -189,6 +199,10 @@ public class MainController implements Initializable {
             map.put(1024, 一千零二十四);
             map.put(2048, 二千四百四十八);
             map.put(4096, 四千九百九十六);
+            map.put(8192,八千一百九十二);
+            map.put(16384,一万六千三百八十四);
+            map.put(32768,三万两千七百六十八);
+            map.put(65536,六万五千五百三十六);
             return map;
         }
 
@@ -215,7 +229,7 @@ public class MainController implements Initializable {
 
                 /*标签*/
                 Label numberLabel = new Label("0");
-                numberLabel.setStyle("-fx-font-size:50;-fx-font-weight:bold;");
+                numberLabel.setStyle("-fx-font-size:40;-fx-font-weight:bold;");
                 latticePane.getChildren().add(numberLabel);
 
                 idToGridPaneNodesListMap.put(id,List.of(latticePane,numberLabel));//id映射背景和标签列表
@@ -735,6 +749,24 @@ public class MainController implements Initializable {
             }
             if (lastLvValues){
                 grade = 3;
+            }
+        }else if (maxValues<=8192){
+            for (int id : idToNumberMap.keySet()){
+                if (idToNumberMap.get(id)==16){
+                    lastLvValues = false;
+                }
+            }
+            if (lastLvValues){
+                grade = 4;
+            }
+        }else if (maxValues<=16384){
+            for (int id : idToNumberMap.keySet()){
+                if (idToNumberMap.get(id)==32){
+                    lastLvValues = false;
+                }
+            }
+            if (lastLvValues){
+                grade = 5;
             }
         }
     }
